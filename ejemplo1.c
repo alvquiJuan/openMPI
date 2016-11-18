@@ -10,6 +10,7 @@ int main (int argc, char *argv[])
   char hostname[MPI_MAX_PROCESSOR_NAME];
 
   MPI_Init(&argc, &argv);
+  //Modificar este programa en MPI de modo que se pueda determinar el nivel de soporte para hilos
   MPI_Query_thread(&claimed);
   //Obtener el número total de tareas e imprimir ese número (línea 24)
   MPI_Comm_size(MPI_COMM_WORLD, &numtasks);
