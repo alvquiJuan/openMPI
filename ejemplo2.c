@@ -26,7 +26,8 @@ int main(int argc, char **argv) {
                 printf("recibido en %d el mensaje %s",my_rank ,msg);
                 char tmp[20];
                 strcpy(tmp,msg);
-                for (int i=0; i<strlen(tmp);i++){
+                int i;
+                for (i=0; i<strlen(tmp);i++){
                         //cambia mayúsculas por minúsculas
                         if (65<tmp[i]&& tmp[i]<90){
                         msg[i]= tmp[i] + 32;
