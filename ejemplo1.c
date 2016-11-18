@@ -25,7 +25,7 @@ int main (int argc, char *argv[])
     }
   /* Imprimir el nombre del procesador solo si es un proceso par */
   if (taskid % 2 == 0) {
-  printf("Processor name: %s\n",MPI_Get_processor_name(hostname, &len));
+  printf("Processor name: %d\n",MPI_Get_processor_name(hostname, &len));
   }
   printf("Query thread level= %d\n",claimed);
   MPI_Finalize();
