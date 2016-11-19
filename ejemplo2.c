@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
         if (my_rank == 0) {
                 strcpy(msg, "Hello ");
                 //envío y recepción en un solo comando, si se desea usar comados indepencientes comentar la lína siguente
-                MPI_Sendrecv (&msg,1,strlen(msg) + 1, MPI_CHAR, 1,tag,&msg_mod,strlen(msg_mod)+1,MPI_CHAR,1,tag, MPI_COMM_WORLD,&Stat); 
+                MPI_Sendrecv (&msg,1,strlen(msg) + 1, MPI_CHAR, 1,tag,&msg_mod,strlen(msg_mod)+1,MPI_CHAR,1,tag, MPI_COMM_WORLD,&status); 
                 //Modifique el programa de modo que el maestro envie una cadena y después espere por la cadena modificada 
 /* // este bloque envía tareas independientes de envío y recepción 
  //estas instrucciones deben ejecutarse en el orden establecido puesto que ejecutarlas al revés puede causar un deadlock
@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
                 
         } else if (my_rank == 1) {
                 //envío y recepción en un solo comando, si se desea ussr comandos independiente comentar desde aquí hasta la línea 42
-                MPI_Sendrecv (&msg_mod,strlen(msg_mod)+1, MPI_CHAR, 0,tag,&msg,strlen(msg)+1,MPI_CHAR,0,tag, MPI_COMM_WORLD,&Stat); 
+                MPI_Sendrecv (&msg_mod,strlen(msg_mod)+1, MPI_CHAR, 0,tag,&msg,strlen(msg)+1,MPI_CHAR,0,tag, MPI_COMM_WORLD,&status); 
                 int i;
                 for (i=0; i<strlen(msg);i++){
                         //cambia mayúsculas por minúsculas
