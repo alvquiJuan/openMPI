@@ -91,7 +91,7 @@ for (i = 0; i < ROUNDS; i++) {
       /* mtype. El valor de retorno de la funcion de recepcion de datos se guarda */ 
       /* en la variable rc */ 
       rc = MPI_Recv(&pirecv, 1, MPI_DOUBLE, MPI_ANY_SOURCE, mtype,
-             MPI_COMM_WORLD, &status)
+             MPI_COMM_WORLD, &status);
 
          if (rc != MPI_SUCCESS) 
             printf("%d: Receive failure on round %d\n", taskid, mtype);
